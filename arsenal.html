@@ -371,6 +371,61 @@ input,select,button{color-scheme:dark;}
 .gatilho-bar{height:100%;border-radius:4px;transition:width 0.5s ease;}
 .gatilho-meta{font-size:11px;color:var(--text3);}
 @media(max-width:480px){.fase-grid{grid-template-columns:repeat(3,1fr);}}
+
+/* ADMIN */
+.admin-lock{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3rem 1rem;text-align:center;}
+.admin-lock-icon{font-size:40px;margin-bottom:1rem;}
+.admin-lock-title{font-size:16px;font-weight:600;margin-bottom:6px;}
+.admin-lock-sub{font-size:13px;color:var(--text2);margin-bottom:1.5rem;}
+.admin-pw-row{display:flex;gap:8px;width:100%;max-width:300px;}
+.admin-content{display:none;}
+.admin-content.unlocked{display:block;}
+.admin-tabs{display:flex;gap:6px;margin-bottom:1.25rem;flex-wrap:wrap;}
+.admin-tab{padding:6px 16px;font-size:12px;font-weight:600;border:0.5px solid var(--border2);border-radius:20px;background:transparent;color:var(--text2);cursor:pointer;font-family:inherit;}
+.admin-tab.active{background:var(--text);color:var(--bg);border-color:var(--text);}
+.admin-section{display:none;}
+.admin-section.active{display:block;}
+.admin-form{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1.25rem;margin-bottom:1rem;}
+.admin-form-title{font-size:13px;font-weight:600;margin-bottom:1rem;color:var(--text);}
+.admin-field{margin-bottom:10px;}
+.admin-field label{display:block;font-size:11px;font-weight:600;color:var(--text2);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em;}
+.admin-field input,.admin-field select,.admin-field textarea{width:100%;padding:8px 10px;background:var(--bg3);border:0.5px solid var(--border2);border-radius:var(--radius);color:var(--text);font-family:inherit;font-size:13px;outline:none;}
+.admin-field textarea{resize:vertical;min-height:70px;}
+.admin-field input:focus,.admin-field select:focus,.admin-field textarea:focus{border-color:var(--text2);}
+.admin-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.admin-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;}
+.admin-btn{padding:8px 16px;font-size:12px;font-weight:600;border-radius:var(--radius);cursor:pointer;font-family:inherit;border:none;transition:opacity 0.15s;}
+.admin-btn:hover{opacity:0.85;}
+.admin-btn-primary{background:var(--text);color:var(--bg);}
+.admin-btn-danger{background:var(--red-dim);color:var(--red);border:0.5px solid rgba(224,82,82,0.3);}
+.admin-btn-secondary{background:var(--bg3);color:var(--text2);border:0.5px solid var(--border2);}
+.admin-btn-warning{background:var(--gold-dim);color:var(--gold);border:0.5px solid rgba(232,184,75,0.3);}
+.admin-list-item{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:1rem 1.25rem;margin-bottom:8px;}
+.admin-list-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+.admin-list-title{font-size:14px;font-weight:500;margin-bottom:2px;}
+.admin-list-sub{font-size:11px;color:var(--text2);}
+.admin-list-actions{display:flex;gap:6px;flex-shrink:0;}
+.admin-cat-checks{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;}
+.admin-cat-check{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--text2);}
+.admin-edit-panel{display:none;margin-top:12px;padding-top:12px;border-top:0.5px solid var(--border);}
+.admin-edit-panel.open{display:block;}
+.tipo-badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;}
+.tipo-1b{background:var(--red-dim);color:var(--red);}
+.tipo-2b{background:var(--green-dim);color:var(--green);}
+.tipo-3b{background:var(--blue-dim);color:var(--blue);}
+.aposentado-badge{background:var(--bg4);color:var(--text3);font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;}
+.treino-list-item{background:var(--bg2);border:0.5px solid var(--border);border-radius:var(--radius-lg);padding:10px 1.25rem;margin-bottom:6px;display:flex;align-items:center;gap:10px;}
+.treino-list-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.treino-list-body{flex:1;}
+.treino-list-title{font-size:13px;font-weight:500;}
+.treino-list-meta{font-size:11px;color:var(--text2);}
+.treino-list-vol{font-size:13px;font-weight:700;white-space:nowrap;}
+.admin-filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:1rem;}
+.admin-msg{padding:10px 14px;border-radius:var(--radius);font-size:12px;margin-bottom:10px;display:none;}
+.admin-msg.show{display:block;}
+.admin-msg-ok{background:var(--green-dim);color:var(--green);}
+.admin-msg-err{background:var(--red-dim);color:var(--red);}
+@media(max-width:480px){.admin-grid-2,.admin-grid-3{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -389,6 +444,7 @@ input,select,button{color-scheme:dark;}
     <button class="nb" onclick="showTab('treinos',this)">Treinos</button>
     <button class="nb" onclick="showTab('dados',this)">Dados</button>
     <button class="nb" onclick="showTab('compras',this)">Sistema de Compra</button>
+    <button class="nb" onclick="showTab('admin',this)">⚙️ Admin</button>
   </div>
 
   <!-- ═══ VISÃO GERAL ═══ -->
@@ -788,6 +844,125 @@ input,select,button{color-scheme:dark;}
     </div>
 
   </div>
+  <!-- ═══ ADMIN ═══ -->
+  <div id="tab-admin" class="section">
+
+    <!-- LOCK SCREEN -->
+    <div class="admin-lock" id="admin-lock">
+      <div class="admin-lock-icon">🔐</div>
+      <div class="admin-lock-title">Área Administrativa</div>
+      <div class="admin-lock-sub">Digite a senha para acessar o CRUD</div>
+      <div class="admin-pw-row">
+        <input class="eval-input" type="password" id="admin-pw-input" placeholder="Senha" onkeydown="if(event.key==='Enter')adminUnlock()">
+        <button class="admin-btn admin-btn-primary" onclick="adminUnlock()">Entrar</button>
+      </div>
+      <div id="admin-pw-error" style="font-size:12px;color:var(--red);margin-top:8px;display:none;">Senha incorreta</div>
+    </div>
+
+    <!-- ADMIN CONTENT -->
+    <div class="admin-content" id="admin-content">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;">
+        <div style="font-size:13px;font-weight:600;">⚙️ Painel Admin</div>
+        <button class="admin-btn admin-btn-secondary" onclick="adminLock()" style="font-size:11px;padding:5px 12px;">Sair</button>
+      </div>
+
+      <div class="admin-tabs">
+        <button class="admin-tab active" onclick="showAdminTab('tenis',this)">👟 Tênis</button>
+        <button class="admin-tab" onclick="showAdminTab('treinos',this)">🏃 Treinos</button>
+      </div>
+
+      <!-- CRUD TÊNIS -->
+      <div id="admin-tenis" class="admin-section active">
+        <div id="admin-msg-tenis" class="admin-msg"></div>
+
+        <!-- Form novo tênis -->
+        <div class="admin-form">
+          <div class="admin-form-title">➕ Adicionar Tênis</div>
+          <div class="admin-grid-2">
+            <div class="admin-field"><label>Nome</label><input type="text" id="tn-nome" placeholder="ex: Adios Pro 4"></div>
+            <div class="admin-field"><label>Marca</label><input type="text" id="tn-marca" placeholder="ex: Adidas"></div>
+          </div>
+          <div class="admin-grid-3">
+            <div class="admin-field"><label>Peso (g)</label><input type="number" id="tn-peso" placeholder="196"></div>
+            <div class="admin-field"><label>Tipo passada</label>
+              <select id="tn-tipo">
+                <option value="1">Tipo 1 · Firme/snap</option>
+                <option value="2" selected>Tipo 2 · Equilibrado</option>
+                <option value="3">Tipo 3 · Macio/trampolim</option>
+              </select>
+            </div>
+            <div class="admin-field"><label>Km base</label><input type="number" id="tn-kmbase" placeholder="0" value="0"></div>
+          </div>
+          <div class="admin-field"><label>Categorias</label>
+            <div class="admin-cat-checks">
+              <label class="admin-cat-check"><input type="checkbox" value="prova" class="tn-cat"> Prova</label>
+              <label class="admin-cat-check"><input type="checkbox" value="treino" class="tn-cat"> Treino forte</label>
+              <label class="admin-cat-check"><input type="checkbox" value="rodagem" class="tn-cat"> Rodagem</label>
+              <label class="admin-cat-check"><input type="checkbox" value="recovery" class="tn-cat"> Recovery</label>
+              <label class="admin-cat-check"><input type="checkbox" value="hyrox" class="tn-cat"> Hyrox</label>
+            </div>
+          </div>
+          <div class="admin-field"><label>Uso ideal</label><input type="text" id="tn-uso" placeholder="ex: 21km · RP · mais leve da elite"></div>
+          <div class="admin-field"><label>Nota técnica</label><textarea id="tn-nota" placeholder="Descrição técnica do tênis..."></textarea></div>
+          <button class="admin-btn admin-btn-primary" onclick="adminAddTenis()">Salvar Tênis</button>
+        </div>
+
+        <!-- Lista tênis -->
+        <div class="slbl" style="padding-top:0.5rem;">Coleção atual</div>
+        <div id="admin-tenis-list"></div>
+      </div>
+
+      <!-- CRUD TREINOS -->
+      <div id="admin-treinos" class="admin-section">
+        <div id="admin-msg-treinos" class="admin-msg"></div>
+
+        <!-- Form novo treino -->
+        <div class="admin-form">
+          <div class="admin-form-title">➕ Registrar Treino</div>
+          <div class="admin-grid-2">
+            <div class="admin-field"><label>Esporte</label>
+              <select id="tr-sport" onchange="adminToggleTenis()">
+                <option value="run">🏃 Corrida</option>
+                <option value="bike">🚴 Bike</option>
+                <option value="swim">🏊 Natação</option>
+                <option value="hyrox">🔥 Hyrox</option>
+                <option value="forca">💪 Força</option>
+              </select>
+            </div>
+            <div class="admin-field"><label>Data</label><input type="date" id="tr-data"></div>
+          </div>
+          <div class="admin-grid-2">
+            <div class="admin-field"><label id="tr-vol-label">Distância (km)</label><input type="number" id="tr-vol" step="0.01" placeholder="ex: 10"></div>
+            <div class="admin-field" id="tr-tenis-field">
+              <label>Tênis usado</label>
+              <select id="tr-tenis"><option value="">Nenhum / Não se aplica</option></select>
+            </div>
+          </div>
+          <div class="admin-field"><label>Descrição (opcional)</label><input type="text" id="tr-desc" placeholder="ex: Neo Zen 2 · Moema"></div>
+          <button class="admin-btn admin-btn-primary" onclick="adminAddTreino()">Salvar Treino</button>
+        </div>
+
+        <!-- Filtros -->
+        <div class="admin-filter-row">
+          <select class="eval-input" id="tr-filter-sport" onchange="renderAdminTreinos()" style="width:auto;padding:5px 10px;font-size:12px;">
+            <option value="">Todos os esportes</option>
+            <option value="run">🏃 Corrida</option>
+            <option value="bike">🚴 Bike</option>
+            <option value="swim">🏊 Natação</option>
+            <option value="hyrox">🔥 Hyrox</option>
+            <option value="forca">💪 Força</option>
+          </select>
+          <select class="eval-input" id="tr-filter-month" onchange="renderAdminTreinos()" style="width:auto;padding:5px 10px;font-size:12px;">
+            <option value="">Todos os meses</option>
+            <option value="2026-04">Abril 2026</option>
+            <option value="2026-05">Maio 2026</option>
+            <option value="2026-06">Junho 2026</option>
+          </select>
+        </div>
+        <div id="admin-treinos-list"></div>
+      </div>
+    </div>
+  </div>
 
 </div>
 <script>
@@ -995,10 +1170,11 @@ function showTab(id,btn){
   document.getElementById("tab-"+id).classList.add("active");
   document.querySelectorAll(".nb").forEach(b=>b.classList.remove("active"));
   if(btn)btn.classList.add("active");
-  else{const tabs=["visao","colecao","planejamento","hierarquia","treinos","dados","compras"];const idx=tabs.indexOf(id);if(idx>=0)document.querySelectorAll(".nb")[idx].classList.add("active");}
+  else{const tabs=["visao","colecao","planejamento","hierarquia","treinos","dados","compras","admin"];const idx=tabs.indexOf(id);if(idx>=0)document.querySelectorAll(".nb")[idx].classList.add("active");}
   if(id==="dados"){renderPeso();renderOdometer();renderHistory();renderMensal();}
   if(id==="treinos"){renderTreinos();}
   if(id==="compras"){renderCompras();}
+  if(id==="admin"&&adminUnlocked){loadAdminData();}
   if(id==="pendentes")renderPendingList();
   if(id==="visao")setTimeout(renderAxis,50);
 }
@@ -1790,6 +1966,323 @@ function renderSemanaDetail(offset){
 
   el.innerHTML=navHtml+summaryHtml+(sportBlocks||`<div class="km-empty">Sem treinos nesta semana.</div>`);
 }
-</script>
+// ══════════════════════════════════════════════
+// ADMIN
+// ══════════════════════════════════════════════
+const ADMIN_PASS="sinacor";
+let adminUnlocked=false;
+let dbTenis=[];
+
+function adminUnlock(){
+  const pw=document.getElementById("admin-pw-input").value;
+  if(pw===ADMIN_PASS){
+    adminUnlocked=true;
+    document.getElementById("admin-lock").style.display="none";
+    document.getElementById("admin-content").classList.add("unlocked");
+    document.getElementById("admin-pw-error").style.display="none";
+    loadAdminData();
+  } else {
+    document.getElementById("admin-pw-error").style.display="block";
+    document.getElementById("admin-pw-input").value="";
+  }
+}
+
+function adminLock(){
+  adminUnlocked=false;
+  document.getElementById("admin-lock").style.display="flex";
+  document.getElementById("admin-content").classList.remove("unlocked");
+  document.getElementById("admin-pw-input").value="";
+}
+
+function showAdminTab(tab,btn){
+  document.querySelectorAll(".admin-section").forEach(s=>s.classList.remove("active"));
+  document.getElementById("admin-"+tab).classList.add("active");
+  document.querySelectorAll(".admin-tab").forEach(b=>b.classList.remove("active"));
+  if(btn)btn.classList.add("active");
+}
+
+function adminMsg(section,text,ok){
+  const el=document.getElementById("admin-msg-"+section);
+  if(!el)return;
+  el.textContent=text;
+  el.className=`admin-msg show ${ok?"admin-msg-ok":"admin-msg-err"}`;
+  setTimeout(()=>el.classList.remove("show"),3500);
+}
+
+async function loadAdminData(){
+  // carrega tênis do supabase
+  const res=await supaFetch("tenis?select=*&order=nome.asc");
+  if(res){
+    dbTenis=res;
+    // se tabela vazia, faz seed
+    if(dbTenis.length===0) await seedTenisDB();
+    else renderAdminTenisList();
+  }
+  renderAdminTreinos();
+  populateAdminTenisSelect();
+
+  // set today as default date
+  const today=new Date();
+  const dd=String(today.getDate()).padStart(2,"0");
+  const mm=String(today.getMonth()+1).padStart(2,"0");
+  document.getElementById("tr-data").value=`${today.getFullYear()}-${mm}-${dd}`;
+}
+
+// ── SEED 13 TÊNIS ──
+const tenisData=[
+  {nome:"Adios Pro 4",brand:"Adidas",peso:196,categorias:["prova"],tipo:2,km_base:16,uso:"21km · RP · mais leve da elite",nota:"Prova de máximo desempenho. O mais leve da elite. Passada equilibrada e responsiva — placa de carbono menos intrusiva que o ZF6. Funciona bem do aquecimento ao ritmo forte."},
+  {nome:"Evo SL",brand:"Adidas",peso:221,categorias:["treino"],tipo:2,km_base:70,uso:"Treino forte + versatilidade",nota:"Velocidade e versatilidade. Ótimo para sessões de qualidade. Passada equilibrada — responde quando você acelera sem ser agressivo."},
+  {nome:"Rebel V5",brand:"New Balance",peso:225,categorias:["treino"],tipo:2,km_base:0,uso:"Treino forte",nota:"Macio + responsivo. FuelCell bem calibrada — afunda levemente e devolve energia sem ser uma plataforma instável."},
+  {nome:"More V6",brand:"New Balance",peso:295,categorias:["recovery"],tipo:3,km_base:8.2,uso:"Easy / curto",nota:"Muito específico. Amortecimento máximo — absorção altíssima mas sem resposta para ritmo. Use apenas em treinos muito fáceis e curtos."},
+  {nome:"Vomero Plus",brand:"Nike",peso:290,categorias:["recovery"],tipo:3,km_base:36,uso:"Recovery",nota:"Conforto máximo para dias de recuperação. Alta absorção, espuma generosa. Passada tipo 3 — te carrega sem te empurrar."},
+  {nome:"Zoom Fly 6",brand:"Nike",peso:240,categorias:["treino"],tipo:1,km_base:40,uso:"Treino de ritmo · Apenas Z3+",nota:"Passada firme e direta — sente o chão, tênis responde com snap agressivo no antepé. Exige passada ativa. Use apenas em Z3+."},
+  {nome:"Corre Turbo",brand:"Olympikus",peso:230,categorias:["rodagem"],tipo:3,km_base:34,uso:"Rodagem / Brick T2",nota:"Consistente e econômico. Passada tipo 3 — absorção boa, te carrega sem exigir. Excelente custo-benefício para rodagem diária."},
+  {nome:"Neo Vista 2",brand:"Mizuno",peso:260,categorias:["recovery"],tipo:3,km_base:29,uso:"Conforto puro",nota:"Uso estratégico para dias de recuperação. Passada tipo 3 — muito confortável, absorção generosa. Pesado demais para treinos sérios."},
+  {nome:"Neo Zen 2",brand:"Mizuno",peso:236,categorias:["rodagem","prova"],tipo:3,km_base:28,uso:"Rodagem / Maratona / Brick T2",nota:"Leve + estável + confortável. Passada tipo 3 bem calibrada — absorção alta com boa estabilidade de base. Um dos melhores coringas da coleção."},
+  {nome:"Racer Speedzone",brand:"Fila",peso:250,categorias:["hyrox"],tipo:3,km_base:0,uso:"Hyrox treino",nota:"Controle e firmeza para estações funcionais do Hyrox. Passada tipo 3 — boa absorção, base estável."},
+  {nome:"Deviate Nitro Elite 4",brand:"Puma",peso:175,categorias:["prova","hyrox"],tipo:2,km_base:0,uso:"Ironman / Hyrox prova",nota:"O mais estável da elite. Passada tipo 2 — placa presente mas suave, não intrusiva. Combina resposta com estabilidade."},
+  {nome:"Superblast 2",brand:"Asics",peso:250,categorias:["rodagem"],tipo:1,km_base:48.4,uso:"Uso estratégico · Z3+",nota:"Passada tipo 1 — FF Turbo+ firme e com snap direto. Exige passada ativa. Em Z1/Z2 ou longões o tênis não te ajuda, te cobra."},
+  {nome:"Superblast 3",brand:"Asics",peso:239,categorias:["rodagem","prova"],tipo:3,km_base:0,uso:"Maratona / longos",nota:"Passada tipo 3 — espuma FF Leap A-TPU mais macia, devolve como trampolim (67.8% retorno). Te carrega com conforto. Ideal para longões e maratona."},
+];
+
+async function seedTenisDB(){
+  const payload=tenisData.map(t=>({
+    nome:t.nome,marca:t.brand,peso:t.peso,
+    categorias:t.categorias,tipo:t.tipo,
+    km_base:t.km_base,uso:t.uso,nota:t.nota,ativo:true
+  }));
+  const res=await supaFetch("tenis",{
+    method:"POST",
+    headers:{"Prefer":"return=representation"},
+    body:JSON.stringify(payload)
+  });
+  if(res){dbTenis=res;renderAdminTenisList();populateAdminTenisSelect();}
+}
+
+function populateAdminTenisSelect(){
+  const sel=document.getElementById("tr-tenis");
+  if(!sel)return;
+  const ativs=dbTenis.filter(t=>t.ativo!==false).sort((a,b)=>a.nome.localeCompare(b.nome));
+  sel.innerHTML=`<option value="">Nenhum / Não se aplica</option>`+
+    ativs.map(t=>`<option value="${t.nome}">${t.nome}</option>`).join("");
+}
+
+function adminToggleTenis(){
+  const sport=document.getElementById("tr-sport").value;
+  const lbl=document.getElementById("tr-vol-label");
+  const tenisField=document.getElementById("tr-tenis-field");
+  if(sport==="run"){
+    tenisField.style.display="block";
+    lbl.textContent="Distância (km)";
+  } else if(sport==="forca"||sport==="hyrox"){
+    tenisField.style.display="none";
+    lbl.textContent="Duração (min)";
+  } else {
+    tenisField.style.display="none";
+    lbl.textContent="Distância (km)";
+  }
+}
+
+// ── CRUD TÊNIS ──
+function renderAdminTenisList(){
+  const el=document.getElementById("admin-tenis-list");
+  if(!el)return;
+  const sorted=[...dbTenis].sort((a,b)=>a.nome.localeCompare(b.nome));
+  el.innerHTML=sorted.map(t=>{
+    const tipoCls=t.tipo===1?"tipo-1b":t.tipo===3?"tipo-3b":"tipo-2b";
+    const tipoLbl=t.tipo===1?"Tipo 1":t.tipo===3?"Tipo 3":"Tipo 2";
+    const cats=(t.categorias||[]).join(", ");
+    const totKm=(()=>{const tot=getKmTotals();return tot[t.nome]||t.km_base||0;})();
+    return`<div class="admin-list-item" id="tenis-item-${t.id}">
+      <div class="admin-list-header">
+        <div>
+          <div class="admin-list-title">${t.nome} ${!t.ativo?'<span class="aposentado-badge">Aposentado</span>':''}</div>
+          <div class="admin-list-sub">${t.marca} · ${t.peso}g · <span class="tipo-badge ${tipoCls}">${tipoLbl}</span> · ${totKm}km acumulados</div>
+          <div class="admin-list-sub" style="margin-top:3px;">${cats}</div>
+        </div>
+        <div class="admin-list-actions">
+          <button class="admin-btn admin-btn-secondary" style="font-size:11px;padding:5px 10px;" onclick="toggleEditTenis('${t.id}')">Editar</button>
+          ${t.ativo?`<button class="admin-btn admin-btn-warning" style="font-size:11px;padding:5px 10px;" onclick="aposentarTenis('${t.id}')">Aposentar</button>`:''}
+          <button class="admin-btn admin-btn-danger" style="font-size:11px;padding:5px 10px;" onclick="deletarTenis('${t.id}','${t.nome.replace(/'/g,"\\'")}')">Excluir</button>
+        </div>
+      </div>
+      <div class="admin-edit-panel" id="edit-tenis-${t.id}">
+        <div class="admin-grid-2">
+          <div class="admin-field"><label>Nome</label><input type="text" id="et-nome-${t.id}" value="${t.nome}"></div>
+          <div class="admin-field"><label>Marca</label><input type="text" id="et-marca-${t.id}" value="${t.marca||''}"></div>
+        </div>
+        <div class="admin-grid-3">
+          <div class="admin-field"><label>Peso (g)</label><input type="number" id="et-peso-${t.id}" value="${t.peso||''}"></div>
+          <div class="admin-field"><label>Tipo</label>
+            <select id="et-tipo-${t.id}">
+              <option value="1" ${t.tipo===1?"selected":""}>Tipo 1 · Firme</option>
+              <option value="2" ${t.tipo===2?"selected":""}>Tipo 2 · Equilibrado</option>
+              <option value="3" ${t.tipo===3?"selected":""}>Tipo 3 · Macio</option>
+            </select>
+          </div>
+          <div class="admin-field"><label>Km base</label><input type="number" id="et-kmbase-${t.id}" value="${t.km_base||0}"></div>
+        </div>
+        <div class="admin-field"><label>Uso ideal</label><input type="text" id="et-uso-${t.id}" value="${t.uso||''}"></div>
+        <div class="admin-field"><label>Nota técnica</label><textarea id="et-nota-${t.id}">${t.nota||''}</textarea></div>
+        <div style="display:flex;gap:8px;">
+          <button class="admin-btn admin-btn-primary" onclick="salvarTenis('${t.id}')">Salvar</button>
+          <button class="admin-btn admin-btn-secondary" onclick="toggleEditTenis('${t.id}')">Cancelar</button>
+        </div>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+function toggleEditTenis(id){
+  const el=document.getElementById("edit-tenis-"+id);
+  if(el)el.classList.toggle("open");
+}
+
+async function adminAddTenis(){
+  const nome=document.getElementById("tn-nome").value.trim();
+  const marca=document.getElementById("tn-marca").value.trim();
+  if(!nome||!marca){adminMsg("tenis","Nome e marca são obrigatórios",false);return;}
+  const cats=[...document.querySelectorAll(".tn-cat:checked")].map(c=>c.value);
+  const payload={
+    nome,marca,
+    peso:parseInt(document.getElementById("tn-peso").value)||null,
+    tipo:parseInt(document.getElementById("tn-tipo").value),
+    km_base:parseFloat(document.getElementById("tn-kmbase").value)||0,
+    categorias:cats,
+    uso:document.getElementById("tn-uso").value.trim(),
+    nota:document.getElementById("tn-nota").value.trim(),
+    ativo:true
+  };
+  const res=await supaFetch("tenis",{method:"POST",headers:{"Prefer":"return=representation"},body:JSON.stringify([payload])});
+  if(res&&res.length){
+    dbTenis.push(res[0]);
+    renderAdminTenisList();
+    populateAdminTenisSelect();
+    ["tn-nome","tn-marca","tn-peso","tn-kmbase","tn-uso","tn-nota"].forEach(id=>document.getElementById(id).value="");
+    document.querySelectorAll(".tn-cat").forEach(c=>c.checked=false);
+    adminMsg("tenis","Tênis adicionado com sucesso!",true);
+  } else adminMsg("tenis","Erro ao salvar tênis",false);
+}
+
+async function salvarTenis(id){
+  const payload={
+    nome:document.getElementById(`et-nome-${id}`).value.trim(),
+    marca:document.getElementById(`et-marca-${id}`).value.trim(),
+    peso:parseInt(document.getElementById(`et-peso-${id}`).value)||null,
+    tipo:parseInt(document.getElementById(`et-tipo-${id}`).value),
+    km_base:parseFloat(document.getElementById(`et-kmbase-${id}`).value)||0,
+    uso:document.getElementById(`et-uso-${id}`).value.trim(),
+    nota:document.getElementById(`et-nota-${id}`).value.trim(),
+  };
+  const res=await supaFetch(`tenis?id=eq.${id}`,{method:"PATCH",headers:{"Prefer":"return=representation"},body:JSON.stringify(payload)});
+  if(res){
+    const idx=dbTenis.findIndex(t=>t.id===id);
+    if(idx>=0)dbTenis[idx]={...dbTenis[idx],...payload};
+    renderAdminTenisList();
+    populateAdminTenisSelect();
+    adminMsg("tenis","Tênis atualizado!",true);
+  } else adminMsg("tenis","Erro ao atualizar",false);
+}
+
+async function aposentarTenis(id){
+  if(!confirm("Aposentar este tênis? Ele não aparecerá mais nas seleções."))return;
+  await supaFetch(`tenis?id=eq.${id}`,{method:"PATCH",body:JSON.stringify({ativo:false})});
+  const idx=dbTenis.findIndex(t=>t.id===id);
+  if(idx>=0)dbTenis[idx].ativo=false;
+  renderAdminTenisList();
+  populateAdminTenisSelect();
+  adminMsg("tenis","Tênis aposentado",true);
+}
+
+async function deletarTenis(id,nome){
+  if(!confirm(`Excluir permanentemente "${nome}"? Esta ação não pode ser desfeita.`))return;
+  await supaFetch(`tenis?id=eq.${id}`,{method:"DELETE"});
+  dbTenis=dbTenis.filter(t=>t.id!==id);
+  renderAdminTenisList();
+  populateAdminTenisSelect();
+  adminMsg("tenis","Tênis excluído",true);
+}
+
+// ── CRUD TREINOS ──
+function renderAdminTreinos(){
+  const el=document.getElementById("admin-treinos-list");
+  if(!el)return;
+  const sportF=document.getElementById("tr-filter-sport")?.value||"";
+  const monthF=document.getElementById("tr-filter-month")?.value||"";
+  let entries=[...treinoEntries];
+  if(sportF)entries=entries.filter(e=>e.sport===sportF);
+  if(monthF)entries=entries.filter(e=>{const p=parseDateKey(e.date);return p&&p.key===monthF;});
+  entries.sort((a,b)=>{
+    const pa=parseDateKey(a.date),pb=parseDateKey(b.date);
+    return pb?.full?.localeCompare(pa?.full||"")||0;
+  });
+  if(!entries.length){el.innerHTML='<div class="km-empty">Nenhum treino encontrado.</div>';return;}
+  el.innerHTML=entries.map(e=>{
+    const sp=SPORTS[e.sport]||{icon:"●",color:"var(--text2)",dim:"var(--bg3)",cls:"run",unit:"km"};
+    const vol=sp.unit==="km"?`${e.vol}km`:`${e.vol}min`;
+    return`<div class="treino-list-item">
+      <div class="treino-list-icon" style="background:${sp.dim};">${sp.icon}</div>
+      <div class="treino-list-body">
+        <div class="treino-list-title">${e.desc||sp.label}</div>
+        <div class="treino-list-meta">${e.date||""}</div>
+      </div>
+      <div class="treino-list-vol" style="color:${sp.color};">${vol}</div>
+      <button class="feed-del" onclick="adminDeleteTreino('${e.id}')" title="Excluir" style="margin-left:8px;">×</button>
+    </div>`;
+  }).join("");
+}
+
+async function adminAddTreino(){
+  const sport=document.getElementById("tr-sport").value;
+  const vol=parseFloat(document.getElementById("tr-vol").value);
+  const desc=document.getElementById("tr-desc").value.trim();
+  const dataInput=document.getElementById("tr-data").value;
+  const tenisUsado=document.getElementById("tr-tenis").value;
+  if(!vol||vol<=0){adminMsg("treinos","Informe o volume",false);return;}
+  if(!dataInput){adminMsg("treinos","Informe a data",false);return;}
+
+  // converte yyyy-mm-dd → dd/mm/yyyy HH:MM
+  const [yr,mo,dy]=dataInput.split("-");
+  const dateStr=`${dy}/${mo}/${yr} 06:00`;
+
+  // salva em treino_entries
+  const trPayload={sport,vol:+vol.toFixed(2),descricao:desc,date:dateStr};
+  const trRes=await supaFetch("treino_entries",{method:"POST",headers:{"Prefer":"return=representation"},body:JSON.stringify([trPayload])});
+  if(trRes&&trRes.length){
+    treinoEntries.push({...trRes[0],desc:trRes[0].descricao});
+  }
+
+  // se corrida + tênis selecionado → salva em km_entries também
+  if(sport==="run"&&tenisUsado){
+    const kmPayload={shoe:tenisUsado,dist:+vol.toFixed(2),descricao:desc,date:dateStr};
+    const kmRes=await supaFetch("km_entries",{method:"POST",headers:{"Prefer":"return=representation"},body:JSON.stringify([kmPayload])});
+    if(kmRes&&kmRes.length){
+      kmEntries.push({...kmRes[0],desc:kmRes[0].descricao});
+    }
+  }
+
+  // limpa form
+  document.getElementById("tr-vol").value="";
+  document.getElementById("tr-desc").value="";
+
+  // re-render
+  renderAdminTreinos();
+  renderOdometer();
+  renderHistory();
+  renderMensal();
+  renderTreinos();
+  adminMsg("treinos","Treino registrado!",true);
+}
+
+async function adminDeleteTreino(id){
+  if(!confirm("Excluir este treino?"))return;
+  await supaFetch(`treino_entries?id=eq.${id}`,{method:"DELETE"});
+  treinoEntries=treinoEntries.filter(e=>e.id!==id);
+  renderAdminTreinos();
+  renderTreinos();
+  renderMensal();
+  adminMsg("treinos","Treino excluído",true);
+}
+
 </body>
 </html>
